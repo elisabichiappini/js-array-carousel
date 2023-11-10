@@ -17,17 +17,37 @@
 
 
 // array di immagini e creare successivamente concatenazione
-const imagesLands = ['land1.jpg', 'land2.jpg', 'land3.jpg', 'land4.jpg', 'land5.jpg'];
+const imagesLands = ['01.jpg', '02.jpg', '03.jpg', '04.jpg', '05.jpg'];
+
 // dichiarare e assegnare il valore da manipolare  
 const items = document.querySelector('.items');
+
+// dichiarare e assegnare variabile per prima immagine che verrà visualizzata è in posizione 0
+let currentImage = 0;
+
 // creare per ogni immagine un elemento da inserire in DOM
 for(let i = 0; i < imagesLands.length; i++) {
-    // creo elemento contenitore
-    const elementBoxImage = document.createElement('div');
-        // controllo che siano state create
-        // console.log(containerImages);
-    elementBoxImage.classList.add('boximage');
 
+    // creo elementBoxImage (elemento che contiene l'immagine) da inserire in DOM
+    const elementBoxImage = document.createElement('div');
+    // controllo che siano state create - console.log(containerImages);
+    elementBoxImage.classList.add('item');
+
+    // condizione se indice = a currentImage a quell'elemento contenitore immagine aggiungigli la classe active quindi sempre elemento 0
+    if (i === currentImage) {
+        elementBoxImage.classList.add('active');
+    }
+
+    // creo elementoImmagine (elemento immagine) da inserire in DOM
+    const elementImg = document.createElement('img');
+    elementImg.src = `img/${imagesLands[i]}`;
+    elementImg.alt = `Landscape ${i}`;
     
+    // appendere elementoImg a elementContenitore
+    elementBoxImage.append(elementImg);
+    items.prepend(elementBoxImage);
+
+    // (condizione) se l'indice corrente è uguale alla currentImage allora aggiungi all'elemnto la classe active
+   
 }
 
