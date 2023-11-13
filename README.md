@@ -1,6 +1,7 @@
 # Carosello Mono Array
 
 Dato un array contenente una lista di cinque immagini, creare un carosello come nello screenshot.
+![carousel](/screenshot/screenshot.JPG)
 
 Programma:
 ## MILESTONE 1
@@ -23,6 +24,7 @@ Aggiungere il ciclo infinito del carosello. Ovvero se è attiva la prima immagin
 ### BONUS 2:
 Aggiungere la visualizzazione di tutte le thumbnails sulla destra dell’immagine grande attiva, come nello screenshot proposto. Tutte le miniature avranno un layer di opacità scura, tranne quella corrispondente all’immagine attiva, che invece avrà un bordo colorato.
 Al click delle frecce, oltre al cambio di immagine attiva, gestire il cambio di miniatura attiva.
+
 ### BONUS 3:
 Al click sulla thumbnail, viene visualizzata l'immagine selezionata;
 

@@ -53,37 +53,32 @@ for(let i = 0; i < imagesLands.length; i++) {
 };
 
 
-// 11) prendere più valori interni nel dom (NodeList) per manipolarli
+// 10) prendere più valori interni nel dom (NodeList) per manipolarli
 const elementBoxesImagesDom = document.querySelectorAll('.item');
 console.log(elementBoxesImagesDom);
 
-// 10) genero EVENTO di click su elementPrev e elementNext 
+// 11) genero EVENTO di click su elementPrev e elementNext 
 elementNext.addEventListener('click',
 function () {
-console.log('ho cliccato su next');
-// 12) condizione currentImage è inferiore a il NodeList allora incremento currentImage di 1, essendo possibile cliccare fino al penultimo elemento aggiungo -1
-if (currentImage < elementBoxesImagesDom.length-1) {
-    // 13) per visualizzare l'immagine quindi classe active segue currentImage che man mano incrementa al click
-    // nello specifico: prendimi di elementBoxesImagesDom l'immagineCurrent (0) e rimuovi active
-    elementBoxesImagesDom[currentImage].classList.remove('active');
-    // incrementa currentImage
+elementBoxesImagesDom[currentImage].classList.remove('active');
+
+if (currentImage === elementBoxesImagesDom.length - 1) {
+    currentImage = 0; 
+} else {
     currentImage++;
-    // riprendimi di elementBoxesImagesDom l'immagineCurrent (1 perchè incrementata) e aggiungi active
-    elementBoxesImagesDom[currentImage].classList.add('active');
 }
+elementBoxesImagesDom[currentImage].classList.add('active');
 });
+
 elementPrev.addEventListener('click',
 function () {
-console.log('ho cliccato su prev');
-
-// 13) condizione currentImage > 0 è possibile decrementare currentImage
-if (currentImage > 0) {
-    // 13) per visualizzare l'immagine quindi classe active segue currentImage che man mano incrementa al click
-    // nello specifico: prendimi di elementBoxesImagesDom l'immagineCurrent (0) e rimuovi active
     elementBoxesImagesDom[currentImage].classList.remove('active');
-    // incrementa currentImage
-    currentImage--;
-    // riprendimi di elementBoxesImagesDom l'immagineCurrent (1 perchè incrementata) e aggiungi active
+
+    if (currentImage === 0) {
+        currentImage = elementBoxesImagesDom.length-1; 
+    } else {
+        currentImage--;
+    }
+
     elementBoxesImagesDom[currentImage].classList.add('active');
-}
 });
